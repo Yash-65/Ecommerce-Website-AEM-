@@ -1,0 +1,59 @@
+<!--<div class="checkout-form" data-sly-use.model="com.practice.core.models.CheckoutModel">-->
+<!--    <h3>Checkout</h3>-->
+
+<!--    <form id="checkoutForm">-->
+<!--        <label for="name">Full Name:</label>-->
+<!--        <input type="text" id="name" name="name" required />-->
+
+<!--        <label for="address">Address:</label>-->
+<!--        <textarea id="address" name="address" required></textarea>-->
+
+<!--        <label for="phone">Phone:</label>-->
+<!--        <input type="tel" id="phone" name="phone" required />-->
+
+<!--        <label for="payment">Payment Method:</label>-->
+<!--        <select id="payment" name="payment" required>-->
+<!--            <option value="cod">Cash on Delivery</option>-->
+<!--            <option value="card">Credit/Debit Card</option>-->
+<!--            <option value="upi">UPI</option>-->
+<!--        </select>-->
+
+<!--        <div class="checkout-summary">-->
+<!--            <strong>Total Payable: ₹${model.total}</strong>-->
+<!--        </div>-->
+
+<!--        <button type="submit" class="place-order">Place Order</button>-->
+<!--    </form>-->
+<!--</div>-->
+
+<div class="checkout-form" data-sly-use.model="com.adobe.aem.tutorial.core.models.CheckoutModel">
+    <h3>Checkout</h3>
+
+    <form id="checkoutForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required />
+
+        <label for="payment">Payment Method:</label>
+        <select id="payment" name="payment" required>
+            <option value="cod">Cash on Delivery</option>
+            <option value="card">Credit/Debit Card</option>
+            <option value="upi">UPI</option>
+        </select>
+
+        <div class="checkout-summary">
+            <strong>Total Payable: ₹${model.total}</strong>
+        </div>
+
+        <button type="submit" class="place-order">Place Order</button>
+    </form>
+</div>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.css @ categories='practice.checkout'}" />
+<sly data-sly-call="${clientlib.js @ categories='practice.checkout'}" />

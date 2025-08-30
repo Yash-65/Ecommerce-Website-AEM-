@@ -1,0 +1,32 @@
+<!--<sly data-sly-use.hero="com.practice.core.models.HeroModel">-->
+<!--    <div class="hero-carousel">-->
+<!--        <sly data-sly-list.slide="${hero.slides}">-->
+<!--            <div class="hero-slide">-->
+<!--                <img src="${slide.image}" alt="${slide.title}">-->
+<!--                <div class="hero-content">-->
+<!--                    <h2>${slide.title}</h2>-->
+<!--                    <p>${slide.description}</p>-->
+<!--                    <a href="${slide.ctaLink}" class="btn-cta">${slide.ctaText}</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </sly>-->
+<!--    </div>-->
+<!--</sly>-->
+
+<sly data-sly-use.hero="com.adobe.aem.tutorial.core.models.HeroModel">
+    <div class="hero-carousel">
+        <sly data-sly-list.slide="${hero.slides}">
+            <div class="hero-slide">
+                <img src="${slide.image}" alt="${slide.title}">
+                <div class="hero-content">
+                    <h2>${slide.title}</h2>
+                    <p>${slide.description}</p>
+                    <a href="${slide.ctaLink}" class="btn-cta">${slide.ctaText}</a>
+                </div>
+            </div>
+        </sly>
+    </div>
+</sly>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.css @ categories='practice.hero'}" />

@@ -1,0 +1,12 @@
+<div class="product-search" data-sly-use.model="com.adobe.aem.tutorial.core.models.ProductSearchModel">
+    <input type="text" class="search-input" placeholder="${properties.placeholderText @ context='text'}" id="searchBox"/>
+    <button class="search-btn">Search</button>
+
+    <div class="search-results" id="resultsContainer">
+        <!-- JS will inject results -->
+    </div>
+</div>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.css @ categories='practice.productsearch'}" />
+<sly data-sly-call="${clientlib.js @ categories='practice.productsearch'}" />

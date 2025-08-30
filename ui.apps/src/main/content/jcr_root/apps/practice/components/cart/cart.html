@@ -1,0 +1,43 @@
+<!--<div class="shopping-cart" data-sly-use.model="com.practice.core.models.CartModel">-->
+<!--    <h3>Your Shopping Cart</h3>-->
+
+<!--    <div class="cart-items">-->
+<!--        <sly data-sly-list.item="${model.items}">-->
+<!--            <div class="cart-item">-->
+<!--                <span class="item-name">${item.name}</span>-->
+<!--                <span class="item-price">₹${item.price}</span>-->
+<!--                <button class="remove-item" data-id="${item.id}">Remove</button>-->
+<!--            </div>-->
+<!--        </sly>-->
+<!--    </div>-->
+
+<!--    <div class="cart-total">-->
+<!--        <strong>Total: ₹${model.total}</strong>-->
+<!--    </div>-->
+
+<!--    <button class="checkout-btn">Proceed to Checkout</button>-->
+<!--</div>-->
+
+<div class="shopping-cart" data-sly-use.model="com.adobe.aem.tutorial.core.models.CartModel">
+    <h3>Your Shopping Cart</h3>
+
+    <div class="cart-items">
+        <sly data-sly-list.item="${model.items}">
+            <div class="cart-item">
+                <span class="item-name">${item.name}</span>
+                <span class="item-price">₹${item.price}</span>
+                <button class="remove-item" data-id="${item.id}">Remove</button>
+            </div>
+        </sly>
+    </div>
+
+    <div class="cart-total">
+        <strong>Total: ₹${model.total}</strong>
+    </div>
+
+    <button class="checkout-btn">Proceed to Checkout</button>
+</div>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.css @ categories='practice.cart'}" />
+<sly data-sly-call="${clientlib.js @ categories='practice.cart'}" />

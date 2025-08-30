@@ -1,0 +1,27 @@
+.product-search {
+    margin: 20px auto;
+    text-align: center;
+    max-width: 500px;
+}
+
+.search-input {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-btn {
+    padding: 10px 15px;
+    margin-left: 5px;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-results {
+    margin-top: 20px;
+    text-align: left;
+}

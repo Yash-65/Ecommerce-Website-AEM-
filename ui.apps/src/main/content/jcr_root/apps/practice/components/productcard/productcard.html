@@ -1,0 +1,23 @@
+<!--<sly data-sly-use.product="com.practice.core.models.ProductCardModel">-->
+<!--    <div class="product-card">-->
+<!--        <img src="${product.image}" alt="${product.title}" class="product-image"/>-->
+<!--        <h3 class="product-title">${product.title}</h3>-->
+<!--        <p class="product-description">${product.description}</p>-->
+<!--        <p class="product-price">₹${product.price}</p>-->
+<!--        <button class="btn-add">${product.ctaText}</button>-->
+<!--    </div>-->
+<!--</sly>-->
+
+<sly data-sly-use.product="com.adobe.aem.tutorial.core.models.ProductCardModel">
+    <div class="product-card">
+        <img src="${product.image}" alt="${product.title}" class="product-image"/>
+        <h3 class="product-title">${product.title}</h3>
+        <p class="product-description">${product.description}</p>
+        <p class="product-price">₹${product.price}</p>
+        <button class="btn-add">${product.ctaText}</button>
+    </div>
+</sly>
+
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.css @ categories='practice.productcard'}" />

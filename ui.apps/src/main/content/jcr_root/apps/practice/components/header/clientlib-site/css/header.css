@@ -1,0 +1,39 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2a9d8f;
+    padding: 10px 20px;
+    color: white;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.search-bar {
+    display: flex;
+    gap: 8px;
+}
+
+.search-bar input {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+}
