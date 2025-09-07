@@ -1,19 +1,10 @@
-<!--<sly data-sly-use.hero="com.practice.core.models.HeroBannerModel">-->
-<!--    <div class="hero-banner" style="background-image: url(${hero.backgroundImage @ context='uri'});">-->
-<!--        <div class="hero-overlay">-->
-<!--            <h1 class="hero-title">${hero.title}</h1>-->
-<!--            <p class="hero-subtitle">${hero.subtitle}</p>-->
-<!--            <a href="${hero.ctaLink}" class="hero-cta">${hero.ctaText}</a>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</sly>-->
 
 <sly data-sly-use.hero="com.adobe.aem.tutorial.core.models.HeroBannerModel">
     <div class="hero-banner" style="background-image: url(${hero.backgroundImage @ context='uri'});">
         <div class="hero-overlay">
             <h1 class="hero-title">${hero.title}</h1>
             <p class="hero-subtitle">${hero.subtitle}</p>
-            <a href="${hero.ctaLink}" class="hero-cta">${hero.ctaText}</a>
+            <a href="${hero.ctaLink}.html" class="hero-cta">${hero.ctaText}</a>
         </div>
     </div>
 </sly>

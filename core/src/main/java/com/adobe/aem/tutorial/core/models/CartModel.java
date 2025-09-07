@@ -16,6 +16,7 @@ public class CartModel {
     @OSGiService
     private CartService cartService;
 
+
     public List<Map<String, Object>> getItems() {
         return cartService.getCartItems();
     }

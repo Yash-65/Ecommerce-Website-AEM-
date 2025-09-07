@@ -1,15 +1,16 @@
 <div class="footer">
     <div class="footer-logo">
-        <img src="${properties.logoFooter}" alt="Footer Logo"/>
+        <img src="${properties.footerText}" alt="Footer Logo"/>
     </div>
 
-    <div class="footer-links">
+    <nav class="footer-links">
         <ul>
-            <li data-sly-list.link="${properties.footerLinks}">
-                <a href="${link}">${link}</a>
-            </li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Contact us</a></li>
         </ul>
-    </div>
+    </nav>
 
     <div class="footer-copy">
         <p>&copy; ${properties.copyrightText @ context='html'}</p>
