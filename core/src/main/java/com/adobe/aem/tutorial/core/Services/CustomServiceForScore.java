@@ -1,4 +1,4 @@
-package com.chli.core.services;
+package com.adobe.aem.tutorial.core.Services;
 
 public interface CustomServiceForScore {
 

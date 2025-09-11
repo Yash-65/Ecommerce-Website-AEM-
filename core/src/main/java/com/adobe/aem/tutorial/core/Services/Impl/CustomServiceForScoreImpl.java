@@ -1,6 +1,7 @@
-package com.chli.core.services.impl;
+package com.adobe.aem.tutorial.core.Services.Impl;
 
-import com.chli.core.services.CustomServiceForScore;
+
+import com.adobe.aem.tutorial.core.Services.CustomServiceForScore;
 import org.osgi.service.component.annotations.Component;
 
 @Component(service = CustomServiceForScore.class)
