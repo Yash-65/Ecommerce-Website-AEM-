@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root
-        xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
-        xmlns:cq="http://www.day.com/jcr/cq/1.0"
-        xmlns:jcr="http://www.jcp.org/jcr/1.0"
-        jcr:primaryType="nt:unstructured"
-        jcr:title="Cart Dialog"
-        sling:resourceType="cq/gui/components/authoring/dialog">
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Cart Component"
+          sling:resourceType="cq/gui/components/authoring/dialog">
 
     <content
             jcr:primaryType="nt:unstructured"
             sling:resourceType="granite/ui/components/coral/foundation/container">
         <items jcr:primaryType="nt:unstructured">
-            <fields
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                    fieldLabel="Cart Title"
-                    name="./title"/>
+            <fields jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <title
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Cart Title"
+                            name="./title"/>
+                    <checkoutPage
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                            fieldLabel="Checkout Page"
+                            name="./checkoutPage"
+                            rootPath="/content"/>
+                </items>
+            </fields>
         </items>
     </content>
 </jcr:root>

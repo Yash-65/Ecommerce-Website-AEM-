@@ -1,18 +1,47 @@
-//package com.practice.core.models;
 package com.adobe.aem.tutorial.core.models;
 
-import org.apache.sling.api.resource.Resource;
+import com.adobe.aem.tutorial.core.Services.EcommerceService;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+import org.apache.sling.models.annotations.injectorspecific.Self;
 
-@Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+import javax.annotation.PostConstruct;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
+@Model(
+        adaptables = SlingHttpServletRequest.class,
+        defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL
+)
 public class ProductSearchModel {
 
-    @ValueMapValue
-    private String placeholderText;
+    @OSGiService
+    private EcommerceService ecommerceService;
 
-    public String getPlaceholderText() {
-        return placeholderText != null ? placeholderText : "Search for products...";
+    @Self
+    private SlingHttpServletRequest request;
+
+    private List<Map<String, Object>> results;
+    private String query;
+
+    @PostConstruct
+    protected void init() {
+        query = request.getParameter("q");   // ✅ Now request is injected
+        if (query != null && !query.trim().isEmpty()) {
+            results = ecommerceService.searchProducts(query.trim());
+        } else {
+            results = Collections.emptyList();
+        }
+    }
+
+    public List<Map<String, Object>> getResults() {
+        return results;
+    }
+
+    public String getQuery() {
+        return query;
     }
 }

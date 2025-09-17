@@ -12,3 +12,4 @@ document.addEventListener("DOMContentLoaded", () => {
         // Later: redirect to checkout page
     });
 });
+

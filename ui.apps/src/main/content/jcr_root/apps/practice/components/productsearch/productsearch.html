@@ -1,12 +1,35 @@
-<div class="product-search" data-sly-use.model="com.adobe.aem.tutorial.core.models.ProductSearchModel">
-    <input type="text" class="search-input" placeholder="${properties.placeholderText @ context='text'}" id="searchBox"/>
-    <button class="search-btn">Search</button>
+<!--<div class="product-search" data-sly-use.model="com.adobe.aem.tutorial.core.models.ProductSearchModel">-->
+<!--    <input type="text" class="search-input" placeholder="${properties.placeholderText @ context='text'}" id="searchBox"/>-->
+<!--    <button class="search-btn">Search</button>-->
 
-    <div class="search-results" id="resultsContainer">
-        <!-- JS will inject results -->
+<!--    <div class="search-results" id="resultsContainer">-->
+<!--        &lt;!&ndash; JS will inject results &ndash;&gt;-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<div class="product-search" data-sly-use.model="com.adobe.aem.tutorial.core.models.ProductSearchModel">
+    <form method="get">
+        <input type="text" class="search-input" name="q" placeholder="${properties.placeholderText @ context='text'}" value="${model.query}" />
+        <button class="search-btn " type="submit">Search</button>
+    </form>
+
+    <div class="search-results">
+        <sly data-sly-test="${!model.results.isEmpty}">
+            <sly data-sly-list.item="${model.results}">
+                <div class="search-item">
+                    <span class="product-name">${item.name}</span> -
+                    <span class="product-price">₹${item.price}</span>
+                </div>
+            </sly>
+        </sly>
+        <sly data-sly-test="${model.query && model.results.isEmpty}">
+            <p>No results found for "${model.query}".</p>
+        </sly>
     </div>
 </div>
 
-<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
-<sly data-sly-call="${clientlib.css @ categories='practice.productsearch'}" />
-<sly data-sly-call="${clientlib.js @ categories='practice.productsearch'}" />
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientlib.css @ categories='practice.productsearch'}"/>
+<sly data-sly-call="${clientlib.js @ categories='practice.productsearch'}"/>

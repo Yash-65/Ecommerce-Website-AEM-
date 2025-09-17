@@ -1,7 +1,8 @@
 //package com.practice.core.models;
 package com.adobe.aem.tutorial.core.models;
 //import com.practice.core.services.CheckoutService;
-import com.adobe.aem.tutorial.core.Services.Impl.CheckoutServiceImpl;
+//import com.adobe.aem.tutorial.core.Services.Impl.CheckoutServiceImpl;
+import com.adobe.aem.tutorial.core.Services.EcommerceService;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
@@ -10,9 +11,9 @@ import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 public class CheckoutModel {
 
     @OSGiService
-    private CheckoutServiceImpl checkoutService;
+    private EcommerceService checkoutService;
 
     public int getTotal() {
-        return checkoutService.getTotalAmount();
+        return checkoutService.getCartTotal();
     }
 }

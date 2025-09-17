@@ -1,3 +1,19 @@
+<!--<sly data-sly-use.grid="com.adobe.aem.tutorial.core.models.ProductGridModel">-->
+<!--    <div class="product-grid">-->
+<!--        <sly data-sly-list.item="${grid.products}">-->
+<!--&lt;!&ndash;        <sly data-sly-list.product="${model.products}">&ndash;&gt;-->
+<!--            <div class="product-card">-->
+<!--                <img src="${item.image}" alt="${item.title}" class="product-image"/>-->
+<!--                <h3 class="product-title">${item.title}</h3>-->
+<!--                &lt;!&ndash;                <h4>${product['name']}</h4>&ndash;&gt;-->
+<!--                <p class="product-description">${item.description}</p>-->
+<!--                <p class="product-price">Price: ₹${item.price}</p>-->
+<!--                <button class="add-to-cart" data-name="${product['name']}">Add to Cart</button>-->
+<!--            </div>-->
+<!--        </sly>-->
+<!--    </div>-->
+<!--</sly>-->
+
 <sly data-sly-use.grid="com.adobe.aem.tutorial.core.models.ProductGridModel">
     <div class="product-grid">
         <sly data-sly-list.item="${grid.products}">
@@ -5,12 +21,13 @@
                 <img src="${item.image}" alt="${item.title}" class="product-image"/>
                 <h3 class="product-title">${item.title}</h3>
                 <p class="product-description">${item.description}</p>
-                <p class="product-price">₹${item.price}</p>
-                <button class="btn-add">${item.ctaText}</button>
+                <p class="product-price">Price: ₹${item.price}</p>
+                <button class="add-to-cart" data-title="${item.title}">Add to Cart</button>
             </div>
         </sly>
     </div>
 </sly>
 
-<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
-<sly data-sly-call="${clientlib.css @ categories='practice.productgrid'}" />
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"/>
+<sly data-sly-call="${clientlib.css @ categories='practice.productgrid'}"/>
+<sly data-sly-call="${clientlib.js @ categories='practice.productgrid'}"/>
