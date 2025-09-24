@@ -1,36 +1,3 @@
-
-//import com.adobe.aem.tutorial.core.Services.EcommerceService;
-//import org.apache.sling.api.SlingHttpServletRequest;
-//import org.apache.sling.api.SlingHttpServletResponse;
-//import org.apache.sling.api.servlets.SlingAllMethodsServlet;
-//import org.osgi.service.component.annotations.Component;
-//import org.osgi.service.component.annotations.Reference;
-//
-//import javax.servlet.Servlet;
-//import java.io.IOException;
-//
-//@Component(service = Servlet.class,
-//        property = {
-//                "sling.servlet.paths=/bin/addtocart",
-//                "sling.servlet.methods=GET"
-//        })
-//public class AddToCartServlet extends SlingAllMethodsServlet {
-//
-//    @Reference
-//    private EcommerceService ecommerceService;
-//
-//    @Override
-//    protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
-//        String productName = request.getParameter("name");
-//        if (productName != null) {
-//            ecommerceService.addProductQuantity(productName);
-//            response.getWriter().write("Added " + productName + " to cart");
-//        } else {
-//            response.getWriter().write("Product name missing");
-//        }
-//    }
-//}
-
 package com.adobe.aem.tutorial.core.servlets;
 
 import com.adobe.aem.tutorial.core.Services.EcommerceService;
@@ -48,11 +15,11 @@ import java.util.Map;
 
 @Component(service = Servlet.class,
         property = {
-                "sling.servlet.paths=/bin/addtocart",
+                "sling.servlet.paths=/bin/removefromcart",
                 "sling.servlet.methods=GET",
                 "sling.servlet.methods=POST"
         })
-public class AddToCartServlet extends SlingAllMethodsServlet {
+public class RemoveFromCartServlet extends SlingAllMethodsServlet {
 
     @Reference
     private EcommerceService ecommerceService;
@@ -75,8 +42,7 @@ public class AddToCartServlet extends SlingAllMethodsServlet {
             return;
         }
 
-        // Add (or create) product in service
-        ecommerceService.addProductQuantity(name);
+        ecommerceService.removeProductQuantity(name);
 
         // Return updated cart JSON
         writeCartJson(response, ecommerceService.getCartItems(), ecommerceService.getCartTotal());

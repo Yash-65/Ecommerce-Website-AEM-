@@ -1,47 +1,11 @@
-<!--<div class="shopping-cart" data-sly-use.model="com.adobe.aem.tutorial.core.models.CartModel">-->
-<!--    <h3>Your Shopping Cart</h3>-->
-
-<!--    <div class="cart-items">-->
-<!--        <sly data-sly-list.item="${model.items}">-->
-<!--            <div class="cart-item">-->
-<!--                <span class="item-name">${item.name}</span>-->
-<!--                <span class="item-price">₹${item.price}</span>-->
-<!--                <button class="remove-item" data-id="${item.id}">Remove</button>-->
-<!--            </div>-->
-<!--        </sly>-->
-<!--    </div>-->
-
-<!--    <div class="cart-total">-->
-<!--        <strong>Total: ₹${model.total}</strong>-->
-<!--    </div>-->
-
-<!--    <button class="checkout-btn">Proceed to Checkout</button>-->
-<!--</div>-->
-
 <div class="shopping-cart" data-sly-use.cart="com.adobe.aem.tutorial.core.models.CartModel">
     <h3>${cart.title}</h3>
 
-    <div class="cart-items">
-        <sly data-sly-list.item="${cart.cartItems}">
-            <div class="cart-item">
-                <span class="item-name">${item.name}</span>
-                <span class="item-price">₹${item.price}</span>
-                <span class="item-qty">Qty: ${item.quantity}</span>
-                <a href="?remove=${item.name}">
-                    <button class="remove-item">Remove</button>
-                </a>
-            </div>
-<!--            <div class="cart-item">-->
-<!--                <span class="item-name">${item['name']}</span>-->
-<!--                <span class="item-qty">Qty: ${item['quantity']}</span>-->
-<!--                <span class="item-price">₹${item['price']}</span>-->
-<!--                <span class="item-subtotal">Subtotal: ₹${item['subtotal']}</span>-->
-<!--            </div>-->
-        </sly>
-    </div>
+    <!-- JS will dynamically populate cart items -->
+    <div class="cart-items"></div>
 
     <div class="cart-total">
-        <strong>Total: ₹${cart.cartTotal}</strong>
+        <strong>Total: ₹0</strong>
     </div>
 
     <button class="checkout-btn" onclick="window.location.href='${cart.checkoutPage @ context='uri'}.html?wcmmode=disabled'">
@@ -51,3 +15,61 @@
 
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
 <sly data-sly-call="${clientlib.css @ categories='practice.cart'}" />
+<sly data-sly-call="${clientlib.js @ categories='practice.cart'}" />
+
+
+
+
+
+
+<!--<div class="shopping-cart" data-sly-use.cart="com.adobe.aem.tutorial.core.models.CartModel">-->
+<!--    <h3>${cart.title}</h3>-->
+
+<!--    <div class="cart-items">-->
+<!--        <sly data-sly-list.item="${cart.cartItems}">-->
+<!--            <div class="cart-item">-->
+<!--                <span class="item-name">${item.name}</span>-->
+<!--                <span class="item-price">₹${item.price}</span>-->
+<!--                <span class="item-qty">Qty: ${item.quantity}</span>-->
+<!--                <a href="?remove=${item.name}">-->
+<!--                    <button class="remove-item">Remove</button>-->
+<!--                </a>-->
+<!--            </div>-->
+
+<!--        </sly>-->
+<!--    </div>-->
+
+<!--    <div class="cart-total">-->
+<!--        <strong>Total: ₹${cart.cartTotal}</strong>-->
+<!--    </div>-->
+
+<!--    <button class="checkout-btn" onclick="window.location.href='${cart.checkoutPage @ context='uri'}.html?wcmmode=disabled'">-->
+<!--        Proceed to Checkout-->
+<!--    </button>-->
+<!--</div>-->
+
+<!--<div class="shopping-cart" data-sly-use.cart="com.adobe.aem.tutorial.core.models.CartModel">-->
+<!--    <h3>${cart.title}</h3>-->
+<!--    -->
+<!--        &lt;!&ndash; Cart Items will be dynamically injected &ndash;&gt;-->
+<!--    <div class="cart-items" id="cart-items">-->
+<!--        <sly data-sly-list.item="${cart.cartItems}">-->
+<!--            <div class="cart-item">-->
+<!--                <span class="item-name">${item.name}</span>-->
+<!--                <span class="item-price">₹${item.price}</span>-->
+<!--                <span class="item-qty">Qty: ${item.quantity}</span>-->
+<!--                <button class="remove-item" onclick="removeFromCart('${item.name}')">Remove</button>-->
+<!--            </div>-->
+<!--        </sly>-->
+<!--    </div>-->
+
+<!--    &lt;!&ndash; Cart Total &ndash;&gt;-->
+<!--    <div class="cart-total">-->
+<!--        <strong>Total: ₹<span id="cart-total">${cart.cartTotal}</span></strong>-->
+<!--    </div>-->
+
+<!--    <button class="checkout-btn" onclick="window.location.href='${cart.checkoutPage @ context='uri'}.html?wcmmode=disabled'">-->
+<!--        Proceed to Checkout-->
+<!--    </button>-->
+<!--</div>-->
+
